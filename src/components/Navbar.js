@@ -1,33 +1,33 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../stylesSheets/Navbar.css';
 
-export default function NavBar() {
-    const [menuOpen, setMenuOpen] = useState(false);
+export default function NavBar({ user, onLogout }) {
     const navigate = useNavigate();
 
-    function Move() {
+    function handleLoginClick() {
         navigate('/login');
     }
 
-    function toggleMenu() {
-        setMenuOpen(!menuOpen); 
+    function handleLogoutClick() {
+        onLogout(); 
     }
 
     return (
-        <>
-            <nav className="nav">
-                <h3 className="logo">LOGO</h3>
-                <ul className={`ul ${menuOpen ? 'open' : ''}`}>
-                    <li className="li">Home</li>
-                    <li className="li">Recipe</li>
-                    <li className="li">About us</li>
-                </ul>
-                <button className="btn" onClick={Move}>Login</button>
-                <div className="menu-icon" onClick={toggleMenu}>
-                    <i className={menuOpen ? 'fas fa-times' : 'fas fa-bars'}></i>
+        <nav className="nav">
+            <h3 className="logo">LOGO</h3>
+            <ul className="ul">
+                <li className="li">Home</li>
+                <li className="li">Recipe</li>
+                <li className="li">About Us</li>
+            </ul>
+            {user ? (
+                <div className="user-menu">
+                    <button onClick={handleLogoutClick}>{user.name}</button> 
                 </div>
-            </nav>
-        </>
+            ) : (
+                <button className="btn" onClick={handleLoginClick}>Login</button>
+            )}
+        </nav>
     );
 }
