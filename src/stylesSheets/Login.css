@@ -1,29 +1,29 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
-*{
+* {
     box-sizing: border-box;
 }
 
-.Parent{
-    align-items: center;
+.Parent {
     display: flex;
     justify-content: center;
     flex-direction: column;
     background: #f6f5f7;
     font-family: 'Montserrat', sans-serif;
-    min-height: 100%;
-    margin: 10%; 
+    min-height: 100vh; 
+    padding: 5%; 
 }
 
 .container {
     position: relative;
-    width: 768px;
-    max-width: 100%;
+    width: 100%; 
+    max-width: 768px; 
     min-height: 480px;
     background: #fff;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.25);
+    margin: 0 auto; 
 }
 
 .sign-up,
@@ -90,18 +90,18 @@ a {
 }
 
 .login-btn {
-    color: #fff; 
-    background: linear-gradient(to right, #ff4b28, #ff228c); 
+    color: #fff;
+    background: linear-gradient(to right, #ff4b28, #ff228c);
     font-size: 12px;
     font-weight: bold;
     padding: 12px 55px;
     margin: 20px;
     border-radius: 20px;
-    border: none; 
+    border: none;
     outline: none;
     letter-spacing: 1px;
     text-transform: uppercase;
-    transition: transform 80ms ease-in, filter 0.2s; 
+    transition: transform 80ms ease-in, filter 0.2s;
     cursor: pointer;
 }
 
@@ -200,4 +200,16 @@ a {
     justify-content: center;
     align-items: center;
     border: 1px solid #ccc;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%; 
+        padding: 20px; 
+    }
+
+    .overlay-container {
+        width: 100%; 
+        left: 0; 
+    }
 }
