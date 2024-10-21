@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
-* {
+*{
     box-sizing: border-box;
 }
 
-body {
+.Parent{
     align-items: center;
     display: flex;
     justify-content: center;
@@ -12,7 +12,7 @@ body {
     background: #f6f5f7;
     font-family: 'Montserrat', sans-serif;
     min-height: 100%;
-    margin: 10%;
+    margin: 10%; 
 }
 
 .container {
@@ -33,6 +33,7 @@ body {
     left: 0;
     height: 100%;
     transition: all 0.6s ease-in-out;
+    background-color: #fff;
 }
 
 .sign-up {
@@ -88,7 +89,7 @@ a {
     margin: 15px 0;
 }
 
-button {
+.login-btn {
     color: #fff; 
     background: linear-gradient(to right, #ff4b28, #ff228c); 
     font-size: 12px;
@@ -104,11 +105,11 @@ button {
     cursor: pointer;
 }
 
-button:active {
+.login-btn:active {
     transform: scale(0.90);
 }
 
-button:hover {
+.login-btn:hover {
     filter: brightness(90%);
 }
 

@@ -1,4 +1,5 @@
 import React, { useState , useRef } from "react";
+import { useNavigate } from 'react-router-dom'; 
 import '../stylesSheets/Login.css';
 
 export default function Login() {
@@ -10,6 +11,7 @@ export default function Login() {
     const logpassref = useRef();
     const signinpara = useRef();
     const signuppara = useRef();
+    const navigate = useNavigate(); 
     const [user , setUser] = useState([]);
     const handleSignUpClick = () => {
         setRightPanelActive(true);
@@ -25,8 +27,7 @@ export default function Login() {
             name: nameref.current.value,
             email: emailref.current.value,
             password: passwordref.current.value
-        };
-    
+        };   
         signuppara.current.textContent = "";
     
         if (!/\S+@\S+\.\S+/.test(newUser.email)) {
@@ -45,6 +46,14 @@ export default function Login() {
             signuppara.current.textContent = "Password should contain at least one special character";
             signuppara.current.style.color = 'red';
         } 
+        else if(user.some(Element => Element.name === newUser.name)){
+            signuppara.current.textContent = "User with same name already exist";
+            signuppara.current.style.color = 'red';
+        }
+        else if(user.some(Element => Element.email === newUser.email)){
+            signuppara.current.textContent = "email already exist";
+            signuppara.current.style.color = 'red';
+        }
         else {
             setUser(prev => {
                 const updatedUsers = [...prev, newUser];
@@ -65,7 +74,7 @@ export default function Login() {
         let found = user.some(Element =>Element.email === email && Element.password === pass);
         signinpara.current.textContent="";
         if(found){
-            alert("Login Successfull");
+            navigate('/home');
         }
         else{
             signinpara.current.textContent = 'Email or Password is incorrect';
@@ -74,6 +83,7 @@ export default function Login() {
     }
 
     return (
+        <div className="Parent">
         <div className={`container ${isRightPanelActive ? "right-panel-active" : ""}`} id="main">
             <div className="sign-up">
                 <form action="#">
@@ -88,7 +98,7 @@ export default function Login() {
                     <input type="email" ref={emailref} name="email" placeholder="Email" required />
                     <input type="password" ref={passwordref} name="pwsd" placeholder="Password" required />
                     <p ref={signuppara}></p>
-                    <button type="submit" onClick={add}>Sign Up</button>
+                    <button type="submit" onClick={add} className="login-btn">Sign Up</button>
                 </form>
             </div>
 
@@ -105,7 +115,7 @@ export default function Login() {
                     <input type="password" ref={logpassref} name="pwsd" placeholder="Password" required />
                     <p ref={signinpara}></p>
                     <a href="#">Forgot your password?</a>
-                    <button type="submit" onClick={Log}>Sign In</button>
+                    <button type="submit" onClick={Log} className="login-btn">Sign In</button>
                 </form>
             </div>
 
@@ -114,15 +124,16 @@ export default function Login() {
                     <div className="overlay-left">
                         <h1>Welcome Back!</h1>
                         <p>To keep connected with us, please log in with your personal info</p>
-                        <button onClick={handleSignInClick} style={{ border: '1px solid #ccc' }}>Sign In</button>
+                        <button onClick={handleSignInClick} style={{ border: '1px solid #ccc' }} className="login-btn">Sign In</button>
                     </div>
                     <div className="overlay-right">
                         <h1>Hello, Friend!</h1>
                         <p>Enter your personal details and start your journey with us</p>
-                        <button onClick={handleSignUpClick} style={{ border: '1px solid #ccc' }}>Sign Up</button>
+                        <button onClick={handleSignUpClick} style={{ border: '1px solid #ccc' }} className="login-btn">Sign Up</button>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     );
 }
