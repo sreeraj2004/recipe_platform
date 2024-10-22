@@ -6,7 +6,7 @@ import '../stylesSheets/Navbar.css';
 export default function NavBar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const navigate = useNavigate();
-    const { user, setUser } = useContext(UserContext); // Added setUser to log out
+    const { user, setUser } = useContext(UserContext);
 
     function handleLoginClick() {
         navigate('/login'); // Navigate to login page
@@ -25,14 +25,18 @@ export default function NavBar() {
     return (
         <nav className="nav">
             <h3 className="logo">LOGO</h3>
-            <ul className={`ul ${menuOpen ? 'open' : ''}`}>
+
+            {/* Only show the navbar items for medium and large screens */}
+            <ul className="ul">
                 <li className="li">Home</li>
                 <li className="li">Recipe</li>
                 <li className="li">About us</li>
             </ul>
+
             <button className="btn" onClick={user ? toggleMenu : handleLoginClick}>
                 {user ? <i className="fas fa-user"></i> : 'Login'}
             </button>
+
             {user && (
                 <div className={`user-dropdown ${menuOpen ? 'show' : ''}`}>
                     <p>{user.name}</p>
@@ -42,9 +46,19 @@ export default function NavBar() {
                     </button>
                 </div>
             )}
+
             <div className="menu-icon" onClick={toggleMenu}>
                 <i className={menuOpen ? 'fas fa-times' : 'fas fa-bars'}></i>
             </div>
+
+            {/* Display the dropdown for small screens */}
+            {menuOpen && (
+                <ul className="dropdown">
+                    <li className="li">Home</li>
+                    <li className="li">Recipe</li>
+                    <li className="li">About us</li>
+                </ul>
+            )}
         </nav>
     );
 }

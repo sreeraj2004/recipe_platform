@@ -20,14 +20,15 @@
     font-weight: bold;
 }
 
-.nav .ul {
-    display: flex;
+/* Desktop Navbar Items */
+.ul {
+    display: flex; /* Show items on medium/large screens */
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
 
-.nav .ul .li {
+.li {
     margin: 0 15px;
     cursor: pointer;
     font-size: larger;
@@ -35,12 +36,13 @@
     padding: 5px;
 }
 
-.nav .ul .li:hover {
+.li:hover{
+    color: black;
     text-decoration: underline;
     font-weight: bolder;
-    color: rgb(0, 0, 0);
 }
 
+/* Button Styling */
 .btn {
     padding: 8px 15px;
     background-color: lightcoral;
@@ -119,27 +121,35 @@
 /* Mobile View */
 @media (max-width: 768px) {
     .ul {
-        display: none;
+        display: none; /* Hide navbar items for small screens */
     }
 
-    .ul.open {
-        display: flex;
+    .menu-icon {
+        display: block; /* Show menu icon on small screens */
+    }
+
+    /* Dropdown Menu for Small Screens */
+    .dropdown {
+        display: flex; /* Show dropdown when menu is open */
         flex-direction: column;
         position: absolute;
-        top: 60px;
+        top: 60px; /* Adjust as needed */
         right: 0;
         width: 100%;
         background-color: rgba(198, 222, 230, 0.9);
     }
 
-    .li {
+    .dropdown .li {
         margin: 20px 0;
         text-align: center;
         font-size: 1.5rem;
+        list-style: none;
     }
 
-    .menu-icon {
-        display: block;
+    .dropdown .li:hover{
+        color: black;
+        text-decoration: underline;
+        font-weight: bolder;
     }
 }
 
