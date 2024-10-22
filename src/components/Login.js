@@ -1,5 +1,6 @@
-import React, { useState , useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import { useNavigate } from 'react-router-dom'; 
+import { UserContext } from "./UserContext";
 import '../stylesSheets/Login.css';
 
 export default function Login() {
@@ -12,7 +13,9 @@ export default function Login() {
     const signinpara = useRef();
     const signuppara = useRef();
     const navigate = useNavigate(); 
-    const [user , setUser] = useState([]);
+    const [users, setUsers] = useState([]);
+    const { setUser } = useContext(UserContext);  // Access setUser from context
+
     const handleSignUpClick = () => {
         setRightPanelActive(true);
     };
@@ -30,53 +33,41 @@ export default function Login() {
         };   
         signuppara.current.textContent = "";
     
+        // Validation logic
         if (!/\S+@\S+\.\S+/.test(newUser.email)) {
             signuppara.current.textContent = "Email is not according to the format";
             signuppara.current.style.color = 'red';
-        }
-        else if (newUser.password.length < 8) {
+        } else if (newUser.password.length < 8) {
             signuppara.current.textContent = "Password should be at least 8 characters long";
             signuppara.current.style.color = 'red';
-        }
-        else if (!/[A-Z]/.test(newUser.password)) {
+        } else if (!/[A-Z]/.test(newUser.password)) {
             signuppara.current.textContent = "Password should contain at least one uppercase letter";
             signuppara.current.style.color = 'red';
-        }
-        else if (!/[!@#$%^&*(),.?":{}|<>]/.test(newUser.password)) {
+        } else if (!/[!@#$%^&*(),.?":{}|<>]/.test(newUser.password)) {
             signuppara.current.textContent = "Password should contain at least one special character";
             signuppara.current.style.color = 'red';
-        } 
-        else if(user.some(Element => Element.name === newUser.name)){
-            signuppara.current.textContent = "User with same name already exist";
+        } else if (users.some(element => element.name === newUser.name)) {
+            signuppara.current.textContent = "User with the same name already exists";
             signuppara.current.style.color = 'red';
-        }
-        else if(user.some(Element => Element.email === newUser.email)){
-            signuppara.current.textContent = "email already exist";
+        } else if (users.some(element => element.email === newUser.email)) {
+            signuppara.current.textContent = "Email already exists";
             signuppara.current.style.color = 'red';
-        }
-        else {
-            setUser(prev => {
-                const updatedUsers = [...prev, newUser];
-                console.log(updatedUsers);
-                return updatedUsers;
-            });
-    
+        } else {
+            setUsers(prev => [...prev, newUser]);
             alert("User with name " + newUser.name + " has been added successfully");
         }
     }
     
-    
-
-    function Log(event){
+    function Log(event) {
         event.preventDefault();
         const email = logemailref.current.value;
         const pass = logpassref.current.value;
-        let found = user.some(Element =>Element.email === email && Element.password === pass);
-        signinpara.current.textContent="";
-        if(found){
-            navigate('/home');
-        }
-        else{
+        const foundUser = users.find(user => user.email === email && user.password === pass);
+        signinpara.current.textContent = "";
+        if (foundUser) {
+            setUser(foundUser.name);  // Set the username in context
+            navigate('/home');  // Navigate to home on successful login
+        } else {
             signinpara.current.textContent = 'Email or Password is incorrect';
             signinpara.current.style.color = 'red';
         }
@@ -84,56 +75,43 @@ export default function Login() {
 
     return (
         <div className="Parent">
-        <div className={`container ${isRightPanelActive ? "right-panel-active" : ""}`} id="main">
-            <div className="sign-up">
-                <form action="#">
-                    <h1>Create Account</h1>
-                    <div className="social-container">
-                        <a href="#" className="social"><i className="fa-brands fa-facebook"></i></a>
-                        <a href="#" className="social"><i className="fa-brands fa-google-plus-g"></i></a>
-                        <a href="#" className="social"><i className="fa-brands fa-linkedin"></i></a>
-                    </div>
-                    <p>or use your email for registration</p>
-                    <input type="text"ref={nameref} name="txt" placeholder="Name" required />
-                    <input type="email" ref={emailref} name="email" placeholder="Email" required />
-                    <input type="password" ref={passwordref} name="pwsd" placeholder="Password" required />
-                    <p ref={signuppara}></p>
-                    <button type="submit" onClick={add} className="login-btn">Sign Up</button>
-                </form>
-            </div>
+            <div className={`container ${isRightPanelActive ? "right-panel-active" : ""}`} id="main">
+                <div className="sign-up">
+                    <form action="#">
+                        <h1>Create Account</h1>
+                        <input type="text" ref={nameref} placeholder="Name" required />
+                        <input type="email" ref={emailref} placeholder="Email" required />
+                        <input type="password" ref={passwordref} placeholder="Password" required />
+                        <p ref={signuppara}></p>
+                        <button type="submit" onClick={add} className="login-btn">Sign Up</button>
+                    </form>
+                </div>
 
-            <div className="sign-in">
-                <form action="#">
-                    <h1>Sign In</h1>
-                    <div className="social-container">
-                        <a href="#" className="social"><i className="fa-brands fa-facebook"></i></a>
-                        <a href="#" className="social"><i className="fa-brands fa-google-plus-g"></i></a>
-                        <a href="#" className="social"><i className="fa-brands fa-linkedin"></i></a>
-                    </div>
-                    <p>or use your account</p>
-                    <input type="email" ref={logemailref} name="email" placeholder="Email" required />
-                    <input type="password" ref={logpassref} name="pwsd" placeholder="Password" required />
-                    <p ref={signinpara}></p>
-                    <a href="#">Forgot your password?</a>
-                    <button type="submit" onClick={Log} className="login-btn">Sign In</button>
-                </form>
-            </div>
+                <div className="sign-in">
+                    <form action="#">
+                        <h1>Sign In</h1>
+                        <input type="email" ref={logemailref} placeholder="Email" required />
+                        <input type="password" ref={logpassref} placeholder="Password" required />
+                        <p ref={signinpara}></p>
+                        <button type="submit" onClick={Log} className="login-btn">Sign In</button>
+                    </form>
+                </div>
 
-            <div className="overlay-container">
-                <div className="overlay">
-                    <div className="overlay-left">
-                        <h1>Welcome Back!</h1>
-                        <p>To keep connected with us, please log in with your personal info</p>
-                        <button onClick={handleSignInClick} style={{ border: '1px solid #ccc' }} className="login-btn">Sign In</button>
-                    </div>
-                    <div className="overlay-right">
-                        <h1>Hello, Friend!</h1>
-                        <p>Enter your personal details and start your journey with us</p>
-                        <button onClick={handleSignUpClick} style={{ border: '1px solid #ccc' }} className="login-btn">Sign Up</button>
+                <div className="overlay-container">
+                    <div className="overlay">
+                        <div className="overlay-left">
+                            <h1>Welcome Back!</h1>
+                            <p>To keep connected with us, please log in with your personal info</p>
+                            <button onClick={handleSignInClick} className="login-btn" style={{border: '3px solid #ccc'}}>Sign In</button>
+                        </div>
+                        <div className="overlay-right">
+                            <h1>Hello, Friend!</h1>
+                            <p>Enter your personal details and start your journey with us</p>
+                            <button onClick={handleSignUpClick} className="login-btn" style={{border: '3px solid #ccc'}}>Sign Up</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
     );
 }

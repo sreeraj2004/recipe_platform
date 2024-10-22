@@ -33,6 +33,7 @@
     cursor: pointer;
     font-size: larger;
     color: black;
+    padding: 5px;
 }
 
 .nav .ul .li:hover {
