@@ -10,7 +10,7 @@ function App() {
             <UserProvider>
                 <Routes>
                     <Route path="/" element={<Login />} />
-                    <Route path='/login' element={<Login/>}/>
+                    <Route path="/login" element={<Login />} />
                     <Route path="/home" element={<NavBar />} />
                 </Routes>
             </UserProvider>

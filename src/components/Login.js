@@ -32,7 +32,7 @@ export default function Login() {
             password: passwordref.current.value
         };   
         signuppara.current.textContent = "";
-    
+
         // Validation logic
         if (!/\S+@\S+\.\S+/.test(newUser.email)) {
             signuppara.current.textContent = "Email is not according to the format";
@@ -65,7 +65,7 @@ export default function Login() {
         const foundUser = users.find(user => user.email === email && user.password === pass);
         signinpara.current.textContent = "";
         if (foundUser) {
-            setUser(foundUser.name);  // Set the username in context
+            setUser({ name: foundUser.name, email: foundUser.email });  // Set both name and email
             navigate('/home');  // Navigate to home on successful login
         } else {
             signinpara.current.textContent = 'Email or Password is incorrect';
@@ -79,6 +79,12 @@ export default function Login() {
                 <div className="sign-up">
                     <form action="#">
                         <h1>Create Account</h1>
+                        <span className="social-container">
+                            <a href="#"><i className="fa-brands fa-facebook"></i></a>
+                            <a href="#"><i className="fa-brands fa-instagram"></i></a>
+                            <a href="#"><i className="fa-brands fa-google-plus-g"></i></a>
+                        </span>
+
                         <input type="text" ref={nameref} placeholder="Name" required />
                         <input type="email" ref={emailref} placeholder="Email" required />
                         <input type="password" ref={passwordref} placeholder="Password" required />
@@ -90,6 +96,12 @@ export default function Login() {
                 <div className="sign-in">
                     <form action="#">
                         <h1>Sign In</h1>
+                        <span className="social-container">
+                            <a href="#"><i className="fa-brands fa-facebook"></i></a>
+                            <a href="#"><i className="fa-brands fa-instagram"></i></a>
+                            <a href="#"><i className="fa-brands fa-google-plus-g"></i></a>
+                        </span>
+
                         <input type="email" ref={logemailref} placeholder="Email" required />
                         <input type="password" ref={logpassref} placeholder="Password" required />
                         <p ref={signinpara}></p>

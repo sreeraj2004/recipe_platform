@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
-
+/* Navbar Styling */
 .nav {
     display: flex;
     justify-content: space-between;
@@ -7,13 +6,13 @@
     padding: 10px 20px;
     background-color: rgb(198, 222, 230);
     color: black;
-    position: sticky;
-    z-index: 1000;
-    top: 0;
+    position: fixed; /* Fixed position */
+    top: 0; /* Sticks to the top */
     left: 0;
     width: 100%;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
+    z-index: 1000; /* Ensures it stays on top */
 }
 
 .logo {
@@ -43,83 +42,104 @@
 }
 
 .btn {
-    padding: 10px 20px;
-    width: auto;
-    background-color: navy;
+    padding: 8px 15px;
+    background-color: lightcoral;
     color: white;
     border: none;
     border-radius: 30px;
     cursor: pointer;
     font-size: larger;
     transition: background-color 0.3s ease;
+    position: relative;
 }
 
 .btn:hover {
-    background-color: rgb(0, 0, 0);
+    background-color: red;
 }
 
+/* Dropdown Styling */
+.user-dropdown {
+    position: absolute;
+    right: 20px;
+    top: 60px; /* Adjusted to be just below the navbar */
+    background-color: rgb(245, 245, 245);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 10px;
+    width: 200px;
+    display: none;
+    flex-direction: column;
+    z-index: 1000;
+}
 
+.user-dropdown.show {
+    display: flex;
+}
+
+.user-dropdown p {
+    margin: 0;
+    padding: 10px;
+    font-size: 14px;
+    color: black;
+    border-bottom: 1px solid #ccc;
+}
+
+.user-dropdown p:hover {
+    background-color: rgba(198, 222, 230, 0.7);
+}
+
+.logout-btn {
+    padding: 10px;
+    background-color: lightcoral;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: red;
+}
+
+/* Menu Icon for small screens */
+.menu-icon {
+    font-size: 1.8rem;
+    cursor: pointer;
+    display: none;
+}
+
+.menu-icon i {
+    color: black;
+}
+
+/* Mobile View */
 @media (max-width: 768px) {
-    .nav {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .logo {
-        font-size: 1.2rem;
-    }
-
-    .ul {
-        position: absolute;
-        top: 60px;
-        right: 0;
-        height: 100vh;
-        width: 100%;
-        background-color: rgba(198, 222, 230, 0.9);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transition: transform 0.3s ease-in-out;
-        transform: translateX(100%);
-    }
-
-    .ul.open {
-        transform: translateX(0);
-    }
-
-    .li {
-        margin: 20px 0;
-        font-size: 1.5rem;
-    }
-
-    .btn {
-        width: auto;
-        font-size: 1rem;
-    }
-
-    .menu-icon {
-        font-size: 1.8rem;
-        cursor: pointer;
-        display: block;
-    }
-
-    .menu-icon i {
-        color: black;
-    }
-
     .ul {
         display: none;
     }
 
     .ul.open {
         display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        background-color: rgba(198, 222, 230, 0.9);
     }
-}
 
-@media (min-width: 769px) {
+    .li {
+        margin: 20px 0;
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
     .menu-icon {
-        display: none;
+        display: block;
     }
 }
 
