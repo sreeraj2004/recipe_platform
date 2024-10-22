@@ -5,40 +5,46 @@ import '../stylesSheets/Navbar.css';
 
 export default function NavBar() {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [dropdownOpen, setDropdownOpen] = useState(false); 
     const navigate = useNavigate();
     const { user, setUser } = useContext(UserContext);
 
     function handleLoginClick() {
-        navigate('/login'); // Navigate to login page
+        navigate('/login'); 
     }
 
     function toggleMenu() {
         setMenuOpen(!menuOpen);
+        setDropdownOpen(false); 
+    }
+
+    function toggleDropdown() {
+        setDropdownOpen(!dropdownOpen); 
+        setMenuOpen(false); 
     }
 
     function handleLogout() {
-        setUser(null); // Clear user context
-        setMenuOpen(false); // Close the menu
-        window.location.reload(); // Reload the page
+        setUser(null); 
+        setDropdownOpen(false); 
+        window.location.reload(); 
     }
 
     return (
         <nav className="nav">
             <h3 className="logo">LOGO</h3>
 
-            {/* Only show the navbar items for medium and large screens */}
             <ul className="ul">
                 <li className="li">Home</li>
                 <li className="li">Recipe</li>
                 <li className="li">About us</li>
             </ul>
 
-            <button className="btn" onClick={user ? toggleMenu : handleLoginClick}>
+            <button className="btn" onClick={user ? toggleDropdown : handleLoginClick}>
                 {user ? <i className="fas fa-user"></i> : 'Login'}
             </button>
 
-            {user && (
-                <div className={`user-dropdown ${menuOpen ? 'show' : ''}`}>
+            {user && dropdownOpen && ( 
+                <div className={`user-dropdown show`}>
                     <p>{user.name}</p>
                     <p>{user.email}</p>
                     <button className="logout-btn" onClick={handleLogout}>
@@ -51,7 +57,6 @@ export default function NavBar() {
                 <i className={menuOpen ? 'fas fa-times' : 'fas fa-bars'}></i>
             </div>
 
-            {/* Display the dropdown for small screens */}
             {menuOpen && (
                 <ul className="dropdown">
                     <li className="li">Home</li>

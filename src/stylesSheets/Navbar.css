@@ -3,7 +3,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 10px 20px; /* Keep consistent padding */
     background-color: rgb(198, 222, 230);
     color: black;
     position: fixed; /* Fixed position */
@@ -36,7 +36,7 @@
     padding: 5px;
 }
 
-.li:hover{
+.li:hover {
     color: black;
     text-decoration: underline;
     font-weight: bolder;
@@ -53,6 +53,10 @@
     font-size: larger;
     transition: background-color 0.3s ease;
     position: relative;
+    height: 40px; /* Set a fixed height for the button */
+    display: flex; /* Flexbox to center icon/text */
+    align-items: center; /* Vertical centering */
+    justify-content: center; /* Horizontal centering */
 }
 
 .btn:hover {
@@ -69,13 +73,13 @@
     border-radius: 10px;
     padding: 10px;
     width: 200px;
-    display: none;
+    display: none; /* Initially hidden */
     flex-direction: column;
     z-index: 1000;
 }
 
 .user-dropdown.show {
-    display: flex;
+    display: flex; /* Show dropdown when menu is open */
 }
 
 .user-dropdown p {
@@ -146,7 +150,7 @@
         list-style: none;
     }
 
-    .dropdown .li:hover{
+    .dropdown .li:hover {
         color: black;
         text-decoration: underline;
         font-weight: bolder;
