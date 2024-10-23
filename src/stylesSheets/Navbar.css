@@ -1,18 +1,18 @@
-/* Navbar Styling */
 .nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px; /* Keep consistent padding */
+    padding: 10px 20px;
     background-color: rgb(198, 222, 230);
     color: black;
-    position: fixed; /* Fixed position */
-    top: 0; /* Sticks to the top */
+    position: fixed;
+    top: 0;
     left: 0;
     width: 100%;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
-    z-index: 1000; /* Ensures it stays on top */
+    z-index: 1000;
+    transition: background-color 0.3s ease;
 }
 
 .logo {
@@ -20,9 +20,8 @@
     font-weight: bold;
 }
 
-/* Desktop Navbar Items */
 .ul {
-    display: flex; /* Show items on medium/large screens */
+    display: flex;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -42,7 +41,6 @@
     font-weight: bolder;
 }
 
-/* Button Styling */
 .btn {
     padding: 8px 15px;
     background-color: lightcoral;
@@ -53,33 +51,32 @@
     font-size: larger;
     transition: background-color 0.3s ease;
     position: relative;
-    height: 40px; /* Set a fixed height for the button */
-    display: flex; /* Flexbox to center icon/text */
-    align-items: center; /* Vertical centering */
-    justify-content: center; /* Horizontal centering */
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn:hover {
     background-color: red;
 }
 
-/* Dropdown Styling */
 .user-dropdown {
     position: absolute;
     right: 20px;
-    top: 60px; /* Adjusted to be just below the navbar */
+    top: 60px;
     background-color: rgb(245, 245, 245);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     padding: 10px;
     width: 200px;
-    display: none; /* Initially hidden */
+    display: none;
     flex-direction: column;
     z-index: 1000;
 }
 
 .user-dropdown.show {
-    display: flex; /* Show dropdown when menu is open */
+    display: flex;
 }
 
 .user-dropdown p {
@@ -111,7 +108,6 @@
     background-color: red;
 }
 
-/* Menu Icon for small screens */
 .menu-icon {
     font-size: 1.8rem;
     cursor: pointer;
@@ -122,22 +118,20 @@
     color: black;
 }
 
-/* Mobile View */
 @media (max-width: 768px) {
     .ul {
-        display: none; /* Hide navbar items for small screens */
+        display: none;
     }
 
     .menu-icon {
-        display: block; /* Show menu icon on small screens */
+        display: block;
     }
 
-    /* Dropdown Menu for Small Screens */
     .dropdown {
-        display: flex; /* Show dropdown when menu is open */
+        display: flex;
         flex-direction: column;
         position: absolute;
-        top: 60px; /* Adjust as needed */
+        top: 60px;
         right: 0;
         width: 100%;
         background-color: rgba(198, 222, 230, 0.9);
@@ -161,3 +155,5 @@ body {
     margin: 0;
     padding: 0;
 }
+
+

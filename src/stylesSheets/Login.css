@@ -75,7 +75,7 @@ p {
 input {
     background: #eee;
     padding: 12px 15px;
-    margin: 8px 15px;
+    margin: 8px 0; /* Changed margin for better stacking */
     width: 100%;
     border-radius: 5px;
     border: none;
@@ -95,7 +95,7 @@ a {
     font-size: 12px;
     font-weight: bold;
     padding: 12px 55px;
-    margin: 20px;
+    margin: 20px 0; /* Changed margin for better stacking */
     border-radius: 20px;
     border: none;
     outline: none;
@@ -190,33 +190,6 @@ a {
 
 .social-container {
     margin: 20px 0;
-}
-
-.social-container a {
-    height: 40px;
-    width: 40px;
-    margin: 0 5px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #ccc;
-}
-
-@media (max-width: 768px) {
-    .container {
-        width: 90%; 
-        padding: 20px; 
-    }
-
-    .overlay-container {
-        width: 100%; 
-        left: 0; 
-    }
-}
-
-
-.social-container {
-    margin: 20px 0;
     display: flex; 
     justify-content: center; 
 }
@@ -246,4 +219,87 @@ a {
 
 .social-container a:hover i {
     color: #ff228c; 
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+    .container {
+        max-width: 90%; 
+    }
+}
+
+@media (max-width: 992px) {
+    .login-btn {
+        padding: 10px 30px; 
+        font-size: 10px; 
+    }
+
+    p {
+        font-size: 12px; 
+    }
+
+    input {
+        padding: 10px; 
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%; 
+        padding: 15px; 
+    }
+
+    .overlay-container {
+        width: 100%; 
+        left: 0; 
+    }
+    
+    h1 {
+        font-size: 1.5rem; 
+    }
+
+    p {
+        font-size: 12px; 
+    }
+
+    input {
+        padding: 10px; 
+    }
+
+    .login-btn {
+        padding: 10px 30px; 
+    }
+
+    .social-container a {
+        height: 35px; 
+        width: 35px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px; 
+    }
+
+    h1 {
+        font-size: 1.3rem; 
+    }
+
+    p {
+        font-size: 10px; 
+    }
+
+    .login-btn {
+        padding: 10px 20px; 
+        font-size: 10px; 
+    }
+    
+    input {
+        padding: 10px; /* Ensure adequate touch target */
+    }
+
+    .overlay-left,
+    .overlay-right {
+        padding: 0 20px; /* Reduced padding for smaller screens */
+    }
 }

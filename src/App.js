@@ -4,6 +4,7 @@ import NavBar from './components/Navbar';
 import { UserProvider } from './components/UserContext';
 import Login from './components/Login'; 
 import Home from './components/home';
+import Slider from './components/Slider';
 
 
 function Display(){
@@ -11,6 +12,7 @@ function Display(){
         <>
             <NavBar></NavBar>
             <Home></Home>
+            <Slider/>
         </>
     )
 }

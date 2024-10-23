@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from './UserContext';
 import '../stylesSheets/Navbar.css';
@@ -8,6 +8,24 @@ export default function NavBar() {
     const [dropdownOpen, setDropdownOpen] = useState(false); 
     const navigate = useNavigate();
     const { user, setUser } = useContext(UserContext);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > 0) {
+                nav.style.backgroundColor = 'white';
+                nav.style.color = 'black';
+            } else {
+                nav.style.backgroundColor = 'rgb(198, 222, 230)';
+                nav.style.color = 'black';
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     function handleLoginClick() {
         navigate('/login'); 

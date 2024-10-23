@@ -1,0 +1,82 @@
+.slider {
+    margin: 100px auto;
+    width: 90%;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap; 
+}
+
+.slider img {
+    width: 10%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid black;
+    transition: all ease-in-out 0.5s;
+}
+
+.slider img:hover {
+    width: 25%;
+}
+
+.heading {
+    font-family: 'Pacifico', cursive;
+    font-size: 4rem; 
+    color: #2c3e50;
+    margin: 20px 0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* For tablets and small desktops */
+@media (max-width: 1024px) {
+    .slider img {
+        width: 20%;
+    }
+
+    .slider img:hover {
+        width: 30%;
+    }
+
+    .slider {
+        gap: 5px;
+    }
+
+    .heading {
+        font-size: 3rem;
+    }
+}
+
+/* For mobile screens */
+@media (max-width: 768px) {
+    .slider img {
+        width: 40%;
+        height: auto;
+    }
+
+    .slider img:hover {
+        width: 45%;
+    }
+
+    .heading {
+        font-size: 2.5rem;
+    }
+}
+
+/* For very small mobile screens */
+@media (max-width: 480px) {
+    .slider img {
+        width: 100%;
+        height: auto;
+    }
+
+    .slider img:hover {
+        width: 100%;
+    }
+
+    .heading {
+        font-size: 2rem;
+    }
+}
