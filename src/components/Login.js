@@ -14,7 +14,7 @@ export default function Login() {
     const signuppara = useRef();
     const navigate = useNavigate(); 
     const [users, setUsers] = useState([]);
-    const { setUser } = useContext(UserContext);  // Access setUser from context
+    const { setUser } = useContext(UserContext);  
 
     const handleSignUpClick = () => {
         setRightPanelActive(true);
@@ -55,6 +55,9 @@ export default function Login() {
         } else {
             setUsers(prev => [...prev, newUser]);
             alert("User with name " + newUser.name + " has been added successfully");
+            nameref.current.value = "";
+            emailref.current.value ="";
+            passwordref.current.value = "";
         }
     }
     

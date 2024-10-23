@@ -23,7 +23,7 @@ function App() {
         <Router>
             <UserProvider>
                 <Routes>
-                    <Route path="/" element={<Login />} />
+                    <Route path="/" element={<Display />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/home" element={<Display />} />
                 </Routes>

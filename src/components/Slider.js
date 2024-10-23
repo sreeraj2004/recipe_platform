@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { UserContext } from './UserContext'; // Import UserContext to access user information
+import { UserContext } from './UserContext'; 
 import chesse from '../images/cheeseCake.jpg';
 import chicken from '../images/chickenBiriyani.jpg';
 import chocolate from '../images/chocolateBrownie.jpg';
@@ -9,18 +9,32 @@ import pan from '../images/pancake.jpg';
 import ramen from '../images/ramen.jpg';
 import '../stylesSheets/Slider.css';
 import { useNavigate } from 'react-router-dom';
+import axios from "axios";
 
 export default function Slider() {
-    const { user } = useContext(UserContext);  // Get user from context
+    const { user } = useContext(UserContext);  
     const navigate = useNavigate();
 
-    // Function to handle image click
     const handleImageClick = (imageId) => {
         if (user) {
-            // User is logged in, show an alert with their email and image ID
-            alert(`User Email: ${user.email}, Image ID: ${imageId}`);
+            const formData = new FormData();
+            formData.append('userEmail', user.email);
+            formData.append('imageId', imageId);
+            formData.append('name',user.name);
+    
+            axios.post('http://localhost/recipe_platform/src/PHP/email.php', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
+            .then((res) => {
+                alert(res.data);
+            })
+            .catch((err) => {
+                console.error(err);
+                alert('An error occurred while sending the email.');
+            });
         } else {
-            // User is not logged in, navigate to login page
             alert('Please log in first!');
             navigate('/login');
         }
@@ -30,13 +44,13 @@ export default function Slider() {
         <>
             <h1 className="heading">Popular Recipes</h1>
             <div className="slider">
-                <img src={chesse} alt="image1" id="one" onClick={() => handleImageClick('one')} />
-                <img src={chicken} alt="image2" id="two" onClick={() => handleImageClick('two')} />
-                <img src={chocolate} alt="image3" id="three" onClick={() => handleImageClick('three')} />
-                <img src={pizza} alt="image4" id="four" onClick={() => handleImageClick('four')} />
-                <img src={fried} alt="image5" id="five" onClick={() => handleImageClick('five')} />
-                <img src={pan} alt="image6" id="six" onClick={() => handleImageClick('six')} />
-                <img src={ramen} alt="image7" id="seven" onClick={() => handleImageClick('seven')} />
+                <img src={chesse} alt="Cheese Cake" id="one" onClick={() => handleImageClick('one')} />
+                <img src={chicken} alt="Chicken Biriyani" id="two" onClick={() => handleImageClick('two')} />
+                <img src={chocolate} alt="Chocolate Brownie" id="three" onClick={() => handleImageClick('three')} />
+                <img src={pizza} alt="Pizza" id="four" onClick={() => handleImageClick('four')} />
+                <img src={fried} alt="Fried Eggs Avocado" id="five" onClick={() => handleImageClick('five')} />
+                <img src={pan} alt="Pancake" id="six" onClick={() => handleImageClick('six')} />
+                <img src={ramen} alt="Ramen" id="seven" onClick={() => handleImageClick('seven')} />
             </div>
         </>
     );
