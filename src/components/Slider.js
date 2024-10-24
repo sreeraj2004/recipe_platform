@@ -10,6 +10,8 @@ import ramen from '../images/ramen.jpg';
 import '../stylesSheets/Slider.css';
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
+import { toast, ToastContainer } from 'react-toastify'; // Import Toast
+import 'react-toastify/dist/ReactToastify.css'; // Import Toast CSS
 
 export default function Slider() {
     const { user } = useContext(UserContext);  
@@ -20,7 +22,7 @@ export default function Slider() {
             const formData = new FormData();
             formData.append('userEmail', user.email);
             formData.append('imageId', imageId);
-            formData.append('name',user.name);
+            formData.append('name', user.name);
     
             axios.post('http://localhost/recipe_platform/src/PHP/email.php', formData, {
                 headers: {
@@ -28,11 +30,11 @@ export default function Slider() {
                 }
             })
             .then((res) => {
-                alert(res.data);
+                toast.success('Email sent successfully!', { autoClose: 2000 }); 
             })
             .catch((err) => {
                 console.error(err);
-                alert('An error occurred while sending the email.');
+                toast.error('Failed to send email. Please try again.', { autoClose: 2000 }); 
             });
         } else {
             alert('Please log in first!');
@@ -44,14 +46,15 @@ export default function Slider() {
         <>
             <h1 className="heading">Popular Recipes</h1>
             <div className="slider">
-                <img src={chesse} alt="Cheese Cake" id="one" onClick={() => handleImageClick('one')} />
-                <img src={chicken} alt="Chicken Biriyani" id="two" onClick={() => handleImageClick('two')} />
-                <img src={chocolate} alt="Chocolate Brownie" id="three" onClick={() => handleImageClick('three')} />
-                <img src={pizza} alt="Pizza" id="four" onClick={() => handleImageClick('four')} />
-                <img src={fried} alt="Fried Eggs Avocado" id="five" onClick={() => handleImageClick('five')} />
-                <img src={pan} alt="Pancake" id="six" onClick={() => handleImageClick('six')} />
-                <img src={ramen} alt="Ramen" id="seven" onClick={() => handleImageClick('seven')} />
+                <img src={chesse} alt="Cheese Cake" id="one" onClick={() => handleImageClick('one')}  loading="lazy"/>
+                <img src={chicken} alt="Chicken Biriyani" id="two" onClick={() => handleImageClick('two')}  loading="lazy"/>
+                <img src={chocolate} alt="Chocolate Brownie" id="three" onClick={() => handleImageClick('three')} loading="lazy"/>
+                <img src={pizza} alt="Pizza" id="four" onClick={() => handleImageClick('four')}  loading="lazy"/>
+                <img src={fried} alt="Fried Eggs Avocado" id="five" onClick={() => handleImageClick('five')}  loading="lazy"/>
+                <img src={pan} alt="Pancake" id="six" onClick={() => handleImageClick('six')} loading="lazy"/>
+                <img src={ramen} alt="Ramen" id="seven" onClick={() => handleImageClick('seven')} loading="lazy"/>
             </div>
+            <ToastContainer /> 
         </>
     );
 }
