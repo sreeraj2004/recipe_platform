@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { UserContext } from './UserContext'; 
+import React from "react";
 import chesse from '../images/cheeseCake.jpg';
 import chicken from '../images/chickenBiriyani.jpg';
 import chocolate from '../images/chocolateBrownie.jpg';
@@ -10,11 +9,12 @@ import ramen from '../images/ramen.jpg';
 import '../stylesSheets/Slider.css';
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
-import { toast, ToastContainer } from 'react-toastify'; // Import Toast
-import 'react-toastify/dist/ReactToastify.css'; // Import Toast CSS
+import { toast, ToastContainer } from 'react-toastify'; 
+import 'react-toastify/dist/ReactToastify.css'; 
 
-export default function Slider() {
-    const { user } = useContext(UserContext);  
+export default function Slider(props) {
+     
+    const user = props.user;
     const navigate = useNavigate();
 
     const handleImageClick = (imageId) => {

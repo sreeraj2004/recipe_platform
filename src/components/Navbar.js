@@ -1,7 +1,10 @@
 import React, { useContext, useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from './UserContext';
+import Home from './home';
 import '../stylesSheets/Navbar.css';
+import Slider from './Slider';
 
 export default function NavBar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -27,6 +30,14 @@ export default function NavBar() {
         };
     }, []);
 
+    function scrollToSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+    
+
     function handleLoginClick() {
         navigate('/login'); 
     }
@@ -48,14 +59,16 @@ export default function NavBar() {
     }
 
     return (
+        <>
         <nav className="nav">
             <h3 className="logo">LOGO</h3>
 
             <ul className="ul">
-                <li className="li">Home</li>
-                <li className="li">Recipe</li>
-                <li className="li">About us</li>
+                <li className="li" onClick={() => scrollToSection('Home')}>Home</li>
+                <li className="li" onClick={() => scrollToSection('Recipe')}>Recipe</li>
+                <li className="li" onClick={() => scrollToSection('About')}>About us</li>
             </ul>
+
 
             <button className="btn" onClick={user ? toggleDropdown : handleLoginClick}>
                 {user ? <i className="fas fa-user"></i> : 'Login'}
@@ -76,12 +89,16 @@ export default function NavBar() {
             </div>
 
             {menuOpen && (
-                <ul className="dropdown">
-                    <li className="li">Home</li>
-                    <li className="li">Recipe</li>
-                    <li className="li">About us</li>
+                <ul className="ul">
+                    <li className="li" onClick={() => scrollToSection('Home')}>Home</li>
+                    <li className="li" onClick={() => scrollToSection('Recipe')}>Recipe</li>
+                    <li className="li" onClick={() => scrollToSection('About')}>About us</li>
                 </ul>
+            
             )}
         </nav>
+        <Home></Home>
+        <Slider user={user}></Slider>
+        </>
     );
 }

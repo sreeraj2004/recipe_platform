@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import NavBar from './components/Navbar'; 
 import { UserProvider } from './components/UserContext';
 import Login from './components/Login'; 
@@ -11,8 +11,8 @@ function Display(){
     return(
         <>
             <NavBar></NavBar>
-            <Home></Home>
-            <Slider/>
+            {/* <Home></Home>
+            <Slider/> */}
         </>
     )
 }

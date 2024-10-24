@@ -4,7 +4,7 @@ import '../stylesSheets/home.css';
 export default function Home(){
     console.log("Home");
     return(
-        <div className="Home">
+        <div className="Home" id="Home">
             <div className="Container-1">
                 <h2>Hey there!</h2>
                 <h1>Here We Share Our Recipes With You</h1>
