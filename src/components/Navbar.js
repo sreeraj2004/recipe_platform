@@ -4,6 +4,7 @@ import { UserContext } from './UserContext';
 import Home from './home';
 import '../stylesSheets/Navbar.css';
 import Slider from './Slider';
+import Recipe from './recipe';
 
 export default function NavBar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -88,7 +89,7 @@ export default function NavBar() {
             </div>
 
             {menuOpen && (
-                <ul className="ul">
+                <ul className="dropdown">
                     <li className="li" onClick={() => scrollToSection('Home')}>Home</li>
                     <li className="li" onClick={() => scrollToSection('Recipe')}>Recipe</li>
                     <li className="li" onClick={() => scrollToSection('About')}>About us</li>
@@ -98,6 +99,7 @@ export default function NavBar() {
         </nav>
         <Home></Home>
         <Slider user={user}></Slider>
+        <Recipe></Recipe>
         </>
     );
 }

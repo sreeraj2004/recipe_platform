@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import indian from '../jsonFiles/indian.json';
 import italian from '../jsonFiles/italian.json';
+import korean from '../jsonFiles/korean.json';
 import '../stylesSheets/recipe.css';
 
 export default function Recipe() {
     const [selectedRecipe, setSelectedRecipe] = useState(null);
-    const recipes = [...indian, ...italian];
+    const recipes = [...indian, ...italian , ...korean];
 
     const handleImageClick = (recipe) => {
         setSelectedRecipe(recipe);

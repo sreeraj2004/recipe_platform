@@ -11,7 +11,6 @@ import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import { toast, ToastContainer } from 'react-toastify'; 
 import 'react-toastify/dist/ReactToastify.css'; 
-import Recipe from "./recipe";
 export default function Slider(props) {
      
     const user = props.user;
@@ -44,18 +43,19 @@ export default function Slider(props) {
 
     return (
         <>
-            <h1 className="heading" id="Recipe">Popular Recipes</h1>
-            <div className="slider">
-                <img src={chesse} alt="Cheese Cake" id="one" onClick={() => handleImageClick('one')}  loading="lazy"/>
-                <img src={chicken} alt="Chicken Biriyani" id="two" onClick={() => handleImageClick('two')}  loading="lazy"/>
-                <img src={chocolate} alt="Chocolate Brownie" id="three" onClick={() => handleImageClick('three')} loading="lazy"/>
-                <img src={pizza} alt="Pizza" id="four" onClick={() => handleImageClick('four')}  loading="lazy"/>
-                <img src={fried} alt="Fried Eggs Avocado" id="five" onClick={() => handleImageClick('five')}  loading="lazy"/>
-                <img src={pan} alt="Pancake" id="six" onClick={() => handleImageClick('six')} loading="lazy"/>
-                <img src={ramen} alt="Ramen" id="seven" onClick={() => handleImageClick('seven')} loading="lazy"/>
+            <div id="Recipe">
+                <h1 className="heading">Popular Recipes</h1>
+                <div className="slider">
+                    <img src={chesse} alt="Cheese Cake" id="one" onClick={() => handleImageClick('one')}  loading="lazy"/>
+                    <img src={chicken} alt="Chicken Biriyani" id="two" onClick={() => handleImageClick('two')}  loading="lazy"/>
+                    <img src={chocolate} alt="Chocolate Brownie" id="three" onClick={() => handleImageClick('three')} loading="lazy"/>
+                    <img src={pizza} alt="Pizza" id="four" onClick={() => handleImageClick('four')}  loading="lazy"/>
+                    <img src={fried} alt="Fried Eggs Avocado" id="five" onClick={() => handleImageClick('five')}  loading="lazy"/>
+                    <img src={pan} alt="Pancake" id="six" onClick={() => handleImageClick('six')} loading="lazy"/>
+                    <img src={ramen} alt="Ramen" id="seven" onClick={() => handleImageClick('seven')} loading="lazy"/>
+                </div>
             </div>
             <ToastContainer /> 
-            <Recipe></Recipe>
         </>
     );
 }
