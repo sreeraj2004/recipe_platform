@@ -1,17 +1,17 @@
 import React from "react";
-import chesse from '../images/cheeseCake.jpg';
-import chicken from '../images/chickenBiriyani.jpg';
-import chocolate from '../images/chocolateBrownie.jpg';
-import pizza from '../images/cpizza.jpg';
-import fried from '../images/friedEggsAvacado.jpg';
-import pan from '../images/pancake.jpg';
-import ramen from '../images/ramen.jpg';
+import chesse from '../images/cheeseCake.webp';
+import chicken from '../images/chickenBiriyani.webp';
+import chocolate from '../images/chocolateBrownie.webp';
+import pizza from '../images/cpizza.webp';
+import fried from '../images/friedEggsAvacado.webp';
+import pan from '../images/pancake.webp';
+import ramen from '../images/ramen.webp';
 import '../stylesSheets/Slider.css';
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import { toast, ToastContainer } from 'react-toastify'; 
 import 'react-toastify/dist/ReactToastify.css'; 
-
+import Recipe from "./recipe";
 export default function Slider(props) {
      
     const user = props.user;
@@ -44,7 +44,7 @@ export default function Slider(props) {
 
     return (
         <>
-            <h1 className="heading">Popular Recipes</h1>
+            <h1 className="heading" id="Recipe">Popular Recipes</h1>
             <div className="slider">
                 <img src={chesse} alt="Cheese Cake" id="one" onClick={() => handleImageClick('one')}  loading="lazy"/>
                 <img src={chicken} alt="Chicken Biriyani" id="two" onClick={() => handleImageClick('two')}  loading="lazy"/>
@@ -55,6 +55,7 @@ export default function Slider(props) {
                 <img src={ramen} alt="Ramen" id="seven" onClick={() => handleImageClick('seven')} loading="lazy"/>
             </div>
             <ToastContainer /> 
+            <Recipe></Recipe>
         </>
     );
 }
