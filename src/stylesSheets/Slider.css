@@ -9,18 +9,18 @@
 }
 
 .slider img {
-    width: 150px; 
-    height: auto; 
+    width: 100%;
+    max-width: 150px;
+    height: auto;
     object-fit: cover;
     border-radius: 10px;
     border: 2px solid black;
-    transition: transform ease-in-out 0.5s; 
+    transition: transform ease-in-out 0.5s;
 }
 
 .slider img:hover {
-    transform: scale(1.1); 
+    transform: scale(1.1);
 }
-
 
 .heading {
     font-family: 'Pacifico', cursive;

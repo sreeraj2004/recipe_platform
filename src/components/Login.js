@@ -68,8 +68,8 @@ export default function Login() {
         const foundUser = users.find(user => user.email === email && user.password === pass);
         signinpara.current.textContent = "";
         if (foundUser) {
-            setUser({ name: foundUser.name, email: foundUser.email });  // Set both name and email
-            navigate('/home');  // Navigate to home on successful login
+            setUser({ name: foundUser.name, email: foundUser.email });  
+            navigate('/home');  
         } else {
             signinpara.current.textContent = 'Email or Password is incorrect';
             signinpara.current.style.color = 'red';

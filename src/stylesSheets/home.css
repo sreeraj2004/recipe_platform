@@ -1,4 +1,4 @@
-.Home {
+/* .Home {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -80,4 +80,101 @@
     .Container-1 h1 {
         font-size: 2.5rem; 
     }
+} */
+
+
+.Home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(198, 222, 230);
+    padding: 20px;
+    min-height: 100vh;
+    box-sizing: border-box;
+    flex-wrap: wrap;
 }
+
+.Container-1,
+.Container-2 {
+    flex: 1;
+    margin: 10px;
+    max-width: 45%;
+    min-width: 300px;
+    box-sizing: border-box;
+}
+
+.Container-1 {
+    text-align: left;
+}
+
+.Container-1 h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 4rem;
+    color: #2c3e50;
+    margin: 20px 0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.Container-1 p {
+    font-size: 1.2rem;
+}
+
+.Container-1 input.inp {
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #2c3e50;
+    border-radius: 5px;
+    margin-right: 10px;
+    width: calc(100% - 120px);
+    box-sizing: border-box;
+}
+
+.Container-1 .find-btn {
+    padding: 10px 15px;
+    font-size: 1rem;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.Container-1 .find-btn:hover {
+    background-color: darkred;
+}
+
+.Container-2 {
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+    align-items: center;
+}
+
+.Container-2 img {
+    max-width: 45%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .Container-1 h1 {
+        font-size: 3rem;
+    }
+    .Container-1,
+    .Container-2 {
+        max-width: 100%;
+    }
+    .Container-2 img {
+        max-width: 40%;
+    }
+}
+
+@media (max-width: 480px) {
+    .Container-1 h1 {
+        font-size: 2.5rem;
+    }
+    .Container-2 img {
+        max-width: 35%;
+    }
+}
+

@@ -3,10 +3,11 @@ import indian from '../jsonFiles/indian.json';
 import italian from '../jsonFiles/italian.json';
 import korean from '../jsonFiles/korean.json';
 import '../stylesSheets/recipe.css';
+import Parallax from "./Parallax";
 
 export default function Recipe() {
     const [selectedRecipe, setSelectedRecipe] = useState(null);
-    const recipes = [...indian, ...italian , ...korean];
+    const recipes = [...indian, ...italian, ...korean];
 
     const handleImageClick = (recipe) => {
         setSelectedRecipe(recipe);
@@ -18,6 +19,7 @@ export default function Recipe() {
 
     return (
         <>
+            <h1 className="heading">Global Flavors</h1>
             <div className="recipe-list">
                 {recipes.map(element => (
                     <li key={element.id} className="recipe-item">
@@ -43,6 +45,7 @@ export default function Recipe() {
                     </div>
                 </div>
             )}
+            <Parallax></Parallax>
         </>
     );
 }

@@ -1,0 +1,53 @@
+/* About.css */
+
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    max-width: 1200px;
+    margin: auto;
+    gap: 20px;
+}
+
+.about-container1, .about-container2 {
+    flex: 1;
+    padding: 20px;
+}
+
+.about-container1 h4 {
+    font-size: 2rem;
+    color: #d35400; /* Rich orange for a warm, chef-like feel */
+    margin-bottom: 20px;
+}
+
+.about-container1 p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555; /* Dark grey for easy readability */
+    text-align: justify;
+}
+
+.about-container2 img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Make responsive adjustments */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .about-container1 h4 {
+        font-size: 1.8rem;
+    }
+    
+    .about-container2 img {
+        max-width: 300px;
+        margin: 20px auto;
+    }
+}

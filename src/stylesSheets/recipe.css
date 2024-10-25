@@ -5,6 +5,14 @@
     list-style-type: none;
     padding: 0;
 }
+.heading {
+    font-family: 'Pacifico', cursive;
+    font-size: 4rem; 
+    color: #2c3e50;
+    margin: 20px 0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
 
 .recipe-item {
     margin: 10px;

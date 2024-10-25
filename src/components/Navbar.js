@@ -5,6 +5,7 @@ import Home from './home';
 import '../stylesSheets/Navbar.css';
 import Slider from './Slider';
 import Recipe from './recipe';
+import About from './About';
 
 export default function NavBar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -100,6 +101,7 @@ export default function NavBar() {
         <Home></Home>
         <Slider user={user}></Slider>
         <Recipe></Recipe>
+        <About></About>
         </>
     );
 }
