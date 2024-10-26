@@ -40,12 +40,17 @@ export default function Recipe() {
                     <div className="popup-content">
                         <span className="close" onClick={handleClosePopup}>&times;</span>
                         <h2>{selectedRecipe.title}</h2>
-                        <p><strong>Ingredients:</strong> {selectedRecipe.ingredient}</p>
-                        <p><strong>Preparation:</strong> {selectedRecipe.preparation}</p>
+                        <p><strong>Ingredients:</strong> {selectedRecipe.ingredient.join(", ")}</p>
+                        <p><strong>Preparation:</strong></p>
+                        <ul className="preparation-list">
+                            {selectedRecipe.preparation.map((step, index) => (
+                                <li key={index}>{step}</li>
+                            ))}
+                        </ul>
                     </div>
                 </div>
             )}
-            <Parallax></Parallax>
+            <Parallax />
         </>
     );
 }

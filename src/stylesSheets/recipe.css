@@ -19,6 +19,11 @@
     text-align: center;
     flex: 0 0 calc(12.5% - 20px);
 }
+.preparation-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
 
 @media (max-width: 1200px) {
     .recipe-item {
