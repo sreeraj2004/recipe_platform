@@ -6,6 +6,7 @@ import '../stylesSheets/Navbar.css';
 import Slider from './Slider';
 import Recipe from './recipe';
 import About from './About';
+import Contact from './Contact';
 
 export default function NavBar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -68,6 +69,7 @@ export default function NavBar() {
                 <li className="li" onClick={() => scrollToSection('Home')}>Home</li>
                 <li className="li" onClick={() => scrollToSection('Recipe')}>Recipe</li>
                 <li className="li" onClick={() => scrollToSection('About')}>About us</li>
+                <li className="li" onClick={() => scrollToSection('Contact')}>Contact us</li>
             </ul>
 
 
@@ -94,6 +96,7 @@ export default function NavBar() {
                     <li className="li" onClick={() => scrollToSection('Home')}>Home</li>
                     <li className="li" onClick={() => scrollToSection('Recipe')}>Recipe</li>
                     <li className="li" onClick={() => scrollToSection('About')}>About us</li>
+                    <li className="li" onClick={() => scrollToSection('Contact')}>Contact us</li>
                 </ul>
             
             )}
@@ -102,6 +105,8 @@ export default function NavBar() {
         <Slider user={user}></Slider>
         <Recipe></Recipe>
         <About></About>
+        <Contact></Contact>
+        
         </>
     );
 }

@@ -75,7 +75,7 @@ p {
 input {
     background: #eee;
     padding: 12px 15px;
-    margin: 8px 0; /* Changed margin for better stacking */
+    margin: 8px 0; 
     width: 100%;
     border-radius: 5px;
     border: none;
@@ -95,7 +95,7 @@ a {
     font-size: 12px;
     font-weight: bold;
     padding: 12px 55px;
-    margin: 20px 0; /* Changed margin for better stacking */
+    margin: 20px 0; 
     border-radius: 20px;
     border: none;
     outline: none;
@@ -221,7 +221,6 @@ a {
     color: #ff228c; 
 }
 
-/* Media Queries for Responsiveness */
 @media (max-width: 1200px) {
     .container {
         max-width: 90%; 
@@ -295,11 +294,12 @@ a {
     }
     
     input {
-        padding: 10px; /* Ensure adequate touch target */
+        padding: 10px; 
     }
 
     .overlay-left,
     .overlay-right {
-        padding: 0 20px; /* Reduced padding for smaller screens */
+        padding: 0 20px; 
     }
 }
+

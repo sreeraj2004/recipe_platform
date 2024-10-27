@@ -115,7 +115,7 @@ export default function Login() {
                 <div className="overlay-container">
                     <div className="overlay">
                         <div className="overlay-left">
-                            <h1>Welcome Back!</h1>
+                            <h1>Welcome Back!</h1>  
                             <p>To keep connected with us, please log in with your personal info</p>
                             <button onClick={handleSignInClick} className="login-btn" style={{border: '3px solid #ccc'}}>Sign In</button>
                         </div>

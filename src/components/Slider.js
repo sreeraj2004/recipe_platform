@@ -45,6 +45,7 @@ export default function Slider(props) {
         <>
             <div id="Recipe">
                 <h1 className="heading">Popular Recipes</h1>
+                <p className="heading1">Click me</p>
                 <div className="slider">
                     <img src={chesse} alt="Cheese Cake" id="one" onClick={() => handleImageClick('one')}  loading="lazy"/>
                     <img src={chicken} alt="Chicken Biriyani" id="two" onClick={() => handleImageClick('two')}  loading="lazy"/>

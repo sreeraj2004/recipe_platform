@@ -74,7 +74,7 @@
     display: none;
     flex-direction: column;
     z-index: 1000;
-    box-sizing: border-box;
+    box-sizing: border-box; 
 }
 
 .user-dropdown.show {
