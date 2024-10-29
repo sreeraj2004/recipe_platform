@@ -7,7 +7,7 @@ import Slider from './Slider';
 import Recipe from './recipe';
 import About from './About';
 import Contact from './Contact';
-
+import Footer from './footer';
 export default function NavBar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [dropdownOpen, setDropdownOpen] = useState(false); 
@@ -106,7 +106,7 @@ export default function NavBar() {
         <Recipe></Recipe>
         <About></About>
         <Contact></Contact>
-        
+        <Footer></Footer>
         </>
     );
 }

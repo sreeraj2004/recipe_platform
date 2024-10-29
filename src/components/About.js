@@ -1,5 +1,9 @@
 import React from "react";
 import chef from '../images/about-chef.png'
+import p1 from '../images/person1.jpeg'
+import p2 from '../images/person2.jpeg'
+import p3 from '../images/preson3.jpeg'
+import p4 from '../images/person4.jpeg'
 import '../stylesSheets/About.css';
 
 export default function About(){
@@ -8,16 +12,45 @@ export default function About(){
             <div className="about-container" id="About">
                 <div className="about-container1">
                     <h4>Hello!!</h4>
-                    <p>I'm the chef and creative mind behind the recipes on this website. Every recipe you find here has been crafted and tested by me with a vision to bring the world's flavors right to your home. My goal is simple: to make a diverse range of global recipes accessible to everyone, all in one place, so that each kitchen feels like it’s equipped for a master chef.
-
-The heart of this website is built on the belief that food is more than just nourishment; it’s an experience that connects us, lifts our spirits, and brings joy. Whether it’s a comforting dish after a long day or a healthful meal to fuel our bodies, food has the unique power to influence our mood, our health, and our lives. That’s why I strive to make every recipe delicious, easy to follow, and a source of happiness for families and friends who gather around the table.
-
-My aim is to help turn every kitchen into a hub of creativity and culinary joy, where even the simplest ingredients can transform into something extraordinary. With these recipes, I hope to inspire you to experiment, to explore new flavors, and to bring a little more excitement and warmth to your meals. So, let's cook, share, and enjoy the journey of delicious food together. Welcome to a world of flavors, and thank you for allowing me to be a part of your kitchen!</p>
+                    <p>I'm the chef and creator behind the recipes on this site, with a mission to bring global flavors to your kitchen. Each recipe is crafted to be accessible, easy to follow, and designed to make every meal a joyful experience. Food, to me, is more than nourishment; it’s a way to connect, uplift, and bring happiness to those around us. I hope these recipes inspire creativity and culinary joy, transforming simple ingredients into extraordinary dishes. Let’s cook, share, and enjoy the journey of delicious food together. Welcome, and thank you for letting me be part of your kitchen!</p>
                 </div>
                 <div className="about-container2">
                     <img src={chef} alt="chef-img"></img>
                 </div>
             </div>
+            <section className="reviews">
+                <h2>User Reviews</h2>
+                <div className="review-container">
+                    <div className="review">
+                    <img src={p1} alt="User 1" className="profile-pic"/>
+                    <h3>Emily Johnson</h3>
+                    <p>"This recipe transformed my dinner party! Everyone loved it, and it was so easy to follow. Highly recommend!"</p>
+                    <div className="stars">⭐⭐⭐⭐</div>
+                    </div>
+
+                    <div className="review">
+                    <img src={p2} alt="User 2" className="profile-pic"/>
+                    <h3>Michael Smith</h3>
+                    <p>"Absolutely delicious! I never thought I could make something this good at home. Thank you!"</p><br></br>
+                    <div className="stars">⭐⭐⭐⭐</div>
+                    </div>
+
+                    <div className="review">
+                    <img src={p3} alt="User 3" className="profile-pic"/>
+                    <h3>Jessica Lee</h3>
+                    <p>"A perfect blend of flavors! My family enjoyed every bite. I’ll definitely be trying more recipes!"</p>
+                    <div className="stars">⭐⭐⭐⭐⭐</div>
+                    </div>
+
+                    <div className="review">
+                    <img src={p4} alt="User 4" className="profile-pic"/>
+                    <h3>David Brown</h3>
+                    <p>"Simple and delicious! The instructions were clear, and the dish turned out fantastic. I’m a fan!"</p>
+                    <div className="stars">⭐⭐⭐⭐⭐</div>
+                    </div>
+                </div>
+            </section>
+
         </>
     )
 }
