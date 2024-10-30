@@ -80,6 +80,16 @@ input {
     border-radius: 5px;
     border: none;
     outline: none;
+    transition: background 0.3s ease, border 0.3s ease;
+}
+
+input:focus {
+    background: #ddd;
+    border: 1px solid #ff4b28; /* Focus border color */
+}
+
+input::placeholder {
+    color: #aaa; /* Placeholder text color */
 }
 
 a {
@@ -111,6 +121,10 @@ a {
 
 .login-btn:hover {
     filter: brightness(90%);
+}
+
+.login-btn:focus {
+    outline: 2px solid #ff4b28; /* Outline for focus */
 }
 
 .container.right-panel-active .sign-up {
@@ -302,4 +316,3 @@ a {
         padding: 0 20px; 
     }
 }
-

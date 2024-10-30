@@ -1,10 +1,11 @@
-import React, { useState, useRef, useContext } from "react";
+import React, { useState, useRef, useContext ,useEffect } from "react";
 import { useNavigate } from 'react-router-dom'; 
-import { UserContext } from "./UserContext";
+import { UserContext } from "./UserContext";  // Assuming you have a UserContext set up
 import '../stylesSheets/Login.css';
 
 export default function Login() {
     const [isRightPanelActive, setRightPanelActive] = useState(false);
+    const [isGapiLoaded, setGapiLoaded] = useState(false);
     const nameref = useRef();
     const emailref = useRef();
     const passwordref = useRef();
@@ -13,8 +14,8 @@ export default function Login() {
     const signinpara = useRef();
     const signuppara = useRef();
     const navigate = useNavigate(); 
-    const [users, setUsers] = useState([]);
     const { setUser } = useContext(UserContext);  
+    const [users, setUsers] = useState([]);  // Assuming you will manage user data
 
     const handleSignUpClick = () => {
         setRightPanelActive(true);
@@ -23,6 +24,9 @@ export default function Login() {
     const handleSignInClick = () => {
         setRightPanelActive(false);
     };
+
+    
+    
 
     function add(event) {
         event.preventDefault();
@@ -33,32 +37,18 @@ export default function Login() {
         };   
         signuppara.current.textContent = "";
 
-        // Validation logic
-        if (!/\S+@\S+\.\S+/.test(newUser.email)) {
-            signuppara.current.textContent = "Email is not according to the format";
+        // Check if user already exists
+        const existingUser = users.find(user => user.email === newUser.email);
+        if (existingUser) {
+            signuppara.current.textContent = 'User already exists.';
             signuppara.current.style.color = 'red';
-        } else if (newUser.password.length < 8) {
-            signuppara.current.textContent = "Password should be at least 8 characters long";
-            signuppara.current.style.color = 'red';
-        } else if (!/[A-Z]/.test(newUser.password)) {
-            signuppara.current.textContent = "Password should contain at least one uppercase letter";
-            signuppara.current.style.color = 'red';
-        } else if (!/[!@#$%^&*(),.?":{}|<>]/.test(newUser.password)) {
-            signuppara.current.textContent = "Password should contain at least one special character";
-            signuppara.current.style.color = 'red';
-        } else if (users.some(element => element.name === newUser.name)) {
-            signuppara.current.textContent = "User with the same name already exists";
-            signuppara.current.style.color = 'red';
-        } else if (users.some(element => element.email === newUser.email)) {
-            signuppara.current.textContent = "Email already exists";
-            signuppara.current.style.color = 'red';
-        } else {
-            setUsers(prev => [...prev, newUser]);
-            alert("User with name " + newUser.name + " has been added successfully");
-            nameref.current.value = "";
-            emailref.current.value ="";
-            passwordref.current.value = "";
+            return;
         }
+
+        // Add user to the list
+        setUsers(prevUsers => [...prevUsers, newUser]);
+        signuppara.current.textContent = 'User registered successfully!';
+        signuppara.current.style.color = 'green';
     }
     
     function Log(event) {
@@ -83,9 +73,11 @@ export default function Login() {
                     <form action="#">
                         <h1>Create Account</h1>
                         <span className="social-container">
+                            <a href="#">
+                                <i className="fa-brands fa-google-plus-g"></i> {/* Google Icon */}
+                            </a>
                             <a href="#"><i className="fa-brands fa-facebook"></i></a>
                             <a href="#"><i className="fa-brands fa-instagram"></i></a>
-                            <a href="#"><i className="fa-brands fa-google-plus-g"></i></a>
                         </span>
 
                         <input type="text" ref={nameref} placeholder="Name" required />
@@ -100,9 +92,11 @@ export default function Login() {
                     <form action="#">
                         <h1>Sign In</h1>
                         <span className="social-container">
+                            <a href="#">
+                                <i className="fa-brands fa-google-plus-g"></i> {/* Google Icon */}
+                            </a>
                             <a href="#"><i className="fa-brands fa-facebook"></i></a>
                             <a href="#"><i className="fa-brands fa-instagram"></i></a>
-                            <a href="#"><i className="fa-brands fa-google-plus-g"></i></a>
                         </span>
 
                         <input type="email" ref={logemailref} placeholder="Email" required />

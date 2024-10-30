@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from './UserContext';
 import Home from './home';
+import LOGO from '../images/logo.png'
 import '../stylesSheets/Navbar.css';
 import Slider from './Slider';
 import Recipe from './recipe';
@@ -63,7 +64,7 @@ export default function NavBar() {
     return (
         <>
         <nav className="nav">
-            <h3 className="logo">LOGO</h3>
+            <img className='logo' src={LOGO} alt="logo"></img>
 
             <ul className="ul">
                 <li className="li" onClick={() => scrollToSection('Home')}>Home</li>

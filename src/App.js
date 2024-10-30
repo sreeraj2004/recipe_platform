@@ -3,15 +3,16 @@ import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import NavBar from './components/Navbar'; 
 import { UserProvider } from './components/UserContext';
 import Login from './components/Login'; 
+import LOGO from '../src/images/logo.png';
 
 
 
 function Display(){
     return(
-        <>
+        <>  
+            
             <NavBar></NavBar>
-            {/* <Home></Home>
-            <Slider/> */}
+            
         </>
     )
 }

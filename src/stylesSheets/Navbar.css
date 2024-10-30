@@ -16,8 +16,13 @@
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
+    height: 80px; /* Adjust height as needed */
+    width: auto; /* Keeps the image aspect ratio */
+    object-fit: contain; /* Ensures the image doesn't stretch */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
 }
 
 .ul {
