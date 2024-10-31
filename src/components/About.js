@@ -23,28 +23,28 @@ export default function About(){
                 <div className="review-container">
                     <div className="review">
                     <img src={p1} alt="User 1" className="profile-pic"/>
-                    <h3>Emily Johnson</h3>
+                    <h3>Alex</h3>
                     <p>"This recipe transformed my dinner party! Everyone loved it, and it was so easy to follow. Highly recommend!"</p>
                     <div className="stars">⭐⭐⭐⭐</div>
                     </div>
 
                     <div className="review">
                     <img src={p2} alt="User 2" className="profile-pic"/>
-                    <h3>Michael Smith</h3>
+                    <h3>Michael</h3>
                     <p>"Absolutely delicious! I never thought I could make something this good at home. Thank you!"</p><br></br>
                     <div className="stars">⭐⭐⭐⭐</div>
                     </div>
 
                     <div className="review">
                     <img src={p3} alt="User 3" className="profile-pic"/>
-                    <h3>Jessica Lee</h3>
+                    <h3>Jessica</h3>
                     <p>"A perfect blend of flavors! My family enjoyed every bite. I’ll definitely be trying more recipes!"</p>
                     <div className="stars">⭐⭐⭐⭐⭐</div>
                     </div>
 
                     <div className="review">
                     <img src={p4} alt="User 4" className="profile-pic"/>
-                    <h3>David Brown</h3>
+                    <h3>David</h3>
                     <p>"Simple and delicious! The instructions were clear, and the dish turned out fantastic. I’m a fan!"</p>
                     <div className="stars">⭐⭐⭐⭐⭐</div>
                     </div>

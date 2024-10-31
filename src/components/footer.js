@@ -38,7 +38,7 @@ export default function Footer(){
                     </div>
                 </div>
                 <div className="footer-bottom">
-                    &copy; 2024 RecipeHub | All rights reserved
+                    &copy; 2024 DishHub | All rights reserved
                 </div>
             </footer>
 
