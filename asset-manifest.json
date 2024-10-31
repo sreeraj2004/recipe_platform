@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/recipe_platform/static/css/main.e2f97d20.css",
+    "main.js": "/recipe_platform/static/js/main.021e36f2.js",
+    "static/js/453.a404ca78.chunk.js": "/recipe_platform/static/js/453.a404ca78.chunk.js",
+    "static/media/ramen.webp": "/recipe_platform/static/media/ramen.0b6d4b6dc1bebbf5c086.webp",
+    "static/media/cheeseCake.webp": "/recipe_platform/static/media/cheeseCake.6a98c178e91a9bc26eb9.webp",
+    "static/media/chocolateBrownie.webp": "/recipe_platform/static/media/chocolateBrownie.843d4c076006f75d5214.webp",
+    "static/media/friedEggsAvacado.webp": "/recipe_platform/static/media/friedEggsAvacado.5910d900da79a1865fdd.webp",
+    "static/media/pancake.webp": "/recipe_platform/static/media/pancake.c8494337a4626da138b3.webp",
+    "static/media/chickenBiriyani.webp": "/recipe_platform/static/media/chickenBiriyani.81b71c6d356d7d7f1d72.webp",
+    "static/media/cpizza.webp": "/recipe_platform/static/media/cpizza.7d5bd6f3fb4a53d36196.webp",
+    "static/media/chef1-removebg-preview.png": "/recipe_platform/static/media/chef1-removebg-preview.e5c03969a3ae4d744545.png",
+    "static/media/logo.png": "/recipe_platform/static/media/logo.4fc726e4602d15ede960.png",
+    "static/media/about-chef.png": "/recipe_platform/static/media/about-chef.cf6f2c8d39a5fdae693a.png",
+    "static/media/parallaxbg.jpeg": "/recipe_platform/static/media/parallaxbg.1eb6da7ed983baa01782.jpeg",
+    "static/media/preson3.jpeg": "/recipe_platform/static/media/preson3.c2ec1cd66edb79caa836.jpeg",
+    "static/media/person1.jpeg": "/recipe_platform/static/media/person1.d1623fe61d23494df8dc.jpeg",
+    "static/media/person2.jpeg": "/recipe_platform/static/media/person2.c265638228603f75441a.jpeg",
+    "static/media/person4.jpeg": "/recipe_platform/static/media/person4.df255f35cc607e220bbd.jpeg",
+    "index.html": "/recipe_platform/index.html",
+    "main.e2f97d20.css.map": "/recipe_platform/static/css/main.e2f97d20.css.map",
+    "main.021e36f2.js.map": "/recipe_platform/static/js/main.021e36f2.js.map",
+    "453.a404ca78.chunk.js.map": "/recipe_platform/static/js/453.a404ca78.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e2f97d20.css",
+    "static/js/main.021e36f2.js"
+  ]
+}
