@@ -25,10 +25,11 @@ export default function Recipe() {
         setSelectedRecipe(recipe);
     };
 
-    // Close popup
     const handleClosePopup = () => {
         setSelectedRecipe(null);
     };
+
+    console.log('Selected Recipe:', selectedRecipe); // Debugging line
 
     return (
         <>
@@ -61,7 +62,7 @@ export default function Recipe() {
             )}
 
             {selectedRecipe && (
-                <div className="popup">
+                <div className={`popup ${selectedRecipe ? 'show' : ''}`}>
                     <div className="popup-content">
                         <span className="close" onClick={handleClosePopup}>&times;</span>
                         <h2>{selectedRecipe.title}</h2>
