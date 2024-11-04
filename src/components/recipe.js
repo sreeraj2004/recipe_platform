@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import indian from '../jsonFiles/indian.json';
 import italian from '../jsonFiles/italian.json';
@@ -7,12 +8,29 @@ import Parallax from "./Parallax";
 
 export default function Recipe() {
     const [selectedRecipe, setSelectedRecipe] = useState(null);
-    const recipes = [...indian, ...italian, ...korean];
+    const [searchTerm, setSearchTerm] = useState("");
 
+    // Combine recipes into a single array
+    const allRecipes = [...indian, ...italian, ...korean];
+
+    // Handle the search input change
+    const handleSearchChange = (event) => {
+        setSearchTerm(event.target.value);
+    };
+
+    // Filter recipes based on the search term
+    const filteredRecipes = searchTerm
+        ? allRecipes.filter(recipe =>
+              recipe.title.toLowerCase().includes(searchTerm.toLowerCase())
+          )
+        : allRecipes;
+
+    // Handle recipe item click to open popup
     const handleImageClick = (recipe) => {
         setSelectedRecipe(recipe);
     };
 
+    // Close popup
     const handleClosePopup = () => {
         setSelectedRecipe(null);
     };
@@ -20,9 +38,16 @@ export default function Recipe() {
     return (
         <>
             <h1 className="heading">Global Flavors</h1>
+            <input
+                type="text"
+                placeholder="Search for a recipe..."
+                value={searchTerm}
+                onChange={handleSearchChange}
+                className="search-bar"
+            />
             <div className="recipe-list">
-                {recipes.map(element => (
-                    <li key={element.id} className="recipe-item">
+                {filteredRecipes.map((element, index) => (
+                    <li key={index} className="recipe-item">
                         <div className="image-container" onClick={() => handleImageClick(element)}>
                             <img
                                 src={element.Pic}
