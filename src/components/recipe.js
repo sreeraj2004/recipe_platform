@@ -8,18 +8,13 @@ import Parallax from "./Parallax";
 export default function Recipe() {
     const [selectedRecipe, setSelectedRecipe] = useState(null);
     const [searchTerm, setSearchTerm] = useState("");
+    const [likes, setLikes] = useState({});
 
     const allRecipes = [...indian, ...italian, ...korean];
 
     const handleSearchChange = (event) => {
         setSearchTerm(event.target.value);
     };
-
-    const filteredRecipes = searchTerm
-        ? allRecipes.filter(recipe =>
-              recipe.title.toLowerCase().includes(searchTerm.toLowerCase())
-          )
-        : allRecipes;
 
     const handleImageClick = (recipe) => {
         setSelectedRecipe(recipe);
@@ -29,7 +24,21 @@ export default function Recipe() {
         setSelectedRecipe(null);
     };
 
-    console.log('Selected Recipe:', selectedRecipe); // Debugging line
+    const handleLikeClick = (title) => {
+        setLikes((prevLikes) => ({
+            ...prevLikes,
+            [title]: {
+                liked: !prevLikes[title]?.liked,
+                count: prevLikes[title]?.liked ? prevLikes[title].count - 1 : (prevLikes[title]?.count || 0) + 1,
+            },
+        }));
+    };
+
+    const filteredRecipes = searchTerm
+        ? allRecipes.filter(recipe =>
+              recipe.title.toLowerCase().includes(searchTerm.toLowerCase())
+          )
+        : allRecipes;
 
     return (
         <>
@@ -56,6 +65,12 @@ export default function Recipe() {
                                 />
                                 <p className="image-title">{element.title}</p>
                             </div>
+                            <button
+                                onClick={() => handleLikeClick(element.title)}
+                                className={`like-button ${likes[element.title]?.liked ? 'liked' : ''}`}
+                            >
+                                <i className="fas fa-heart"></i> {likes[element.title]?.count || 0}
+                            </button>
                         </li>
                     ))}
                 </div>
