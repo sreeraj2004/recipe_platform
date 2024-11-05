@@ -82,6 +82,7 @@ export default function NavBar() {
                 <div className={`user-dropdown show`}>
                     <p>{user.name}</p>
                     <p>{user.email}</p>
+                    
                     <button className="logout-btn" onClick={handleLogout}>
                         Logout
                     </button>
@@ -104,7 +105,7 @@ export default function NavBar() {
         </nav>
         <Home></Home>
         <Slider user={user}></Slider>
-        <Recipe></Recipe>
+        <Recipe user={user}></Recipe>
         <About></About>
         <Contact></Contact>
         <Footer></Footer>

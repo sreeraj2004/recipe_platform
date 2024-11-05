@@ -1,14 +1,16 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import indian from '../jsonFiles/indian.json';
 import italian from '../jsonFiles/italian.json';
 import korean from '../jsonFiles/korean.json';
 import '../stylesSheets/recipe.css';
 import Parallax from "./Parallax";
 
-export default function Recipe() {
+export default function Recipe({ user }) { // Accept 'user' as a prop
     const [selectedRecipe, setSelectedRecipe] = useState(null);
     const [searchTerm, setSearchTerm] = useState("");
     const [likes, setLikes] = useState({});
+    const navigate = useNavigate();
 
     const allRecipes = [...indian, ...italian, ...korean];
 
@@ -25,6 +27,13 @@ export default function Recipe() {
     };
 
     const handleLikeClick = (title) => {
+        if (!user) {
+            // Redirect to login if user is not logged in
+            navigate('/login');
+            alert("Please log in to like this recipe.");
+            return;
+        }
+        // Toggle like for logged-in users
         setLikes((prevLikes) => ({
             ...prevLikes,
             [title]: {
