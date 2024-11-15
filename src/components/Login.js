@@ -1,4 +1,4 @@
-import React, { useState, useRef, useContext ,useEffect } from "react";
+import React, { useState, useRef, useContext, useEffect } from "react";
 import { useNavigate } from 'react-router-dom'; 
 import { UserContext } from "./UserContext";  // Assuming you have a UserContext set up
 import '../stylesSheets/Login.css';
@@ -15,7 +15,12 @@ export default function Login() {
     const signuppara = useRef();
     const navigate = useNavigate(); 
     const { setUser } = useContext(UserContext);  
-    const [users, setUsers] = useState([]);  // Assuming you will manage user data
+
+    // Load users from localStorage or initialize an empty array
+    const [users, setUsers] = useState(() => {
+        const savedUsers = localStorage.getItem('users');
+        return savedUsers ? JSON.parse(savedUsers) : [];
+    });
 
     const handleSignUpClick = () => {
         setRightPanelActive(true);
@@ -25,8 +30,10 @@ export default function Login() {
         setRightPanelActive(false);
     };
 
-    
-    
+    useEffect(() => {
+        // Save users to localStorage whenever the users list changes
+        localStorage.setItem('users', JSON.stringify(users));
+    }, [users]);
 
     function add(event) {
         event.preventDefault();
@@ -74,7 +81,7 @@ export default function Login() {
                         <h1>Create Account</h1>
                         <span className="social-container">
                             <a href="#">
-                                <i className="fa-brands fa-google-plus-g"></i> {/* Google Icon */}
+                                <i className="fa-brands fa-google-plus-g"></i>
                             </a>
                             <a href="#"><i className="fa-brands fa-facebook"></i></a>
                             <a href="#"><i className="fa-brands fa-instagram"></i></a>
