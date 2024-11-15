@@ -29,12 +29,17 @@ export default function Slider(props) {
                 }
             })
             .then((res) => {
-                toast.success('Email not sent. Please try again.', { autoClose: 2000 }); 
+                // Check response status or data to confirm success
+                if (res.status === 200 && res.data.includes('success')) {
+                    toast.success('Email sent successfully!', { autoClose: 2000 }); 
+                } else {
+                    toast.error('Failed to send email. Please try again.', { autoClose: 2000 });
+                }
             })
             .catch((err) => {
                 console.error(err);
-                toast.error('Email sent successfully!', { autoClose: 2000 }); 
-            });
+                toast.error('Failed to send email. Please try again.', { autoClose: 2000 }); 
+            });            
         } else {
             alert('Please log in first!');
             navigate('/login');

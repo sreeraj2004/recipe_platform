@@ -353,11 +353,12 @@ $process
 $from = "sreerajmutha@gmail.com";
 $headers = "From: $from";
 
-$check = mail($to, $sub, $message, $headers);
+// $check = mail($to, $sub, $message, $headers);
 
-if ($check) {
-    echo "Email sent";
+if (mail($to, $sub, $message)) {
+    echo "success"; // This string is used to detect success in the Axios `then` block.
 } else {
-    echo "Email not sent successfully";
+    echo "failure"; // Or provide an error description.
 }
+
 ?>
